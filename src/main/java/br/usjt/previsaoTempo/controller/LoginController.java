@@ -19,9 +19,7 @@ public class LoginController {
 
 	@GetMapping(value = { "/login", "/" })
 	public ModelAndView login() {
-		System.out.println("Entrei nessa porra");
-		ModelAndView mv = new ModelAndView("Login");
-		//Ja deixa previamente instanciado um usuario
+		ModelAndView mv = new ModelAndView("login");
 		mv.addObject(new Usuario());
 
 		return mv;
@@ -32,7 +30,7 @@ public class LoginController {
 		
 		if (userServ.validarLogin(user)) {
 			request.getSession().setAttribute("usuarioLogado", user);
-			return "redirect:/previsao";
+			return "redirect:/previsao/";
 		}else {
 			return "/";
 		}

@@ -3,9 +3,9 @@ package br.usjt.previsaoTempo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.usjt.previsaoTempo.model.Tempo;
+import br.usjt.previsaoTempo.model.PrevisaoDiaSemana;
 
 @Repository
-public interface previsaoRepository extends JpaRepository<Tempo, Long>{
+public interface PrevisaoDiaSemanaReposytori extends JpaRepository<PrevisaoDiaSemana, Long> {
 
 }

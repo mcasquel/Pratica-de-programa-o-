@@ -17,18 +17,26 @@
 		</div>
 		<div class="panel-body">
 
-			<form class="form-inline" method="post" th:object="${tempo}" th:action="@{/previsao}" style="margin: 20px 0">
+			<form class="form-inline" method="post" th:object="${tempo}"
+				th:action="@{/previsao}" style="margin: 20px 0">
 				<div class="form-group">
-					
-					<input type="text" class="form-control" placeholder="Dia da Semana" th:field="*{diaSemana}" /> 
-					<input type="text" class="form-control" placeholder="Temp Minima" th:field="*{temperaturaMinima}" /> 
-					<input type="text" class="form-control" placeholder="Temp Maxima" th:field="*{temperaturaMaxima}" />
-					<input type="text" class="form-control" placeholder="Umidade Relativa" th:field="*{umidadeRelativa}" />
-					<input type="text" class="form-control" placeholder="Descricao" th:field="*{descricao}" />
-					<input type="text" class="form-control" placeholder="Latitude" th:field="*{latitude}" />
-					<input type="text" class="form-control" placeholder="Longitude" th:field="*{longitude}" />
-					<input type="text" class="form-control" placeholder="Data e Hora" th:field="*{dataHora}" />
-						
+					<select th:field="*{diaDaSemana}">
+						<option th:each="diaSemana : ${diasSemana}"
+							th:value="${diaSemana.id}" th:text="${diaSemana.diaDaSemana}"></option>
+					</select> <input type="text" class="form-control" placeholder="Temp Minima"
+						th:field="*{temperaturaMinima}" /> <input type="text"
+						class="form-control" placeholder="Temp Maxima"
+						th:field="*{temperaturaMaxima}" /> <input type="text"
+						class="form-control" placeholder="Umidade Relativa"
+						th:field="*{umidadeRelativa}" /> <input type="text"
+						class="form-control" placeholder="Descricao"
+						th:field="*{descricao}" /> <input type="text"
+						class="form-control" placeholder="Latitude" th:field="*{latitude}" />
+					<input type="text" class="form-control" placeholder="Longitude"
+						th:field="*{longitude}" /> <input type="text"
+						class="form-control" placeholder="Data e Hora"
+						th:field="*{dataHora}" />
+
 					<button type="submit" class="btn btn-primary">Adicionar</button>
 				</div>
 			</form>
@@ -45,7 +53,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="previsao : ${previsoes}">
-						<td th:text="${previsao.diaSemana}"></td>
+						<td th:text="${previsao.diaDaSemana?.diaDaSemana}"></td>
 						<td th:text="${previsao.temperaturaMinima}"></td>
 						<td th:text="${previsao.temperaturaMaxima}"></td>
 						<td th:text="${previsao.umidadeRelativa}"></td>
